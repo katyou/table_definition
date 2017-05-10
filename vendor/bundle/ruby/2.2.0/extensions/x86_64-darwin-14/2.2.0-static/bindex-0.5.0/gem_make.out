@@ -1,0 +1,11 @@
+/Users/katyou/.rbenv/versions/2.2.4/bin/ruby -r ./siteconf20170510-62707-a8upop.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.bundle
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20170510-62707-1jaoo8f/bindex

@@ -1,0 +1,13 @@
+current directory: /Users/katyou/Desktop/practice_file/table_definition/vendor/bundle/ruby/2.3.0/gems/libv8-3.16.14.19/ext/libv8
+/Users/katyou/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20170510-89439-y959k5.rb extconf.rb --with-system-v8
+creating Makefile
+
+current directory: /Users/katyou/Desktop/practice_file/table_definition/vendor/bundle/ruby/2.3.0/gems/libv8-3.16.14.19/ext/libv8
+make "DESTDIR=" clean
+
+current directory: /Users/katyou/Desktop/practice_file/table_definition/vendor/bundle/ruby/2.3.0/gems/libv8-3.16.14.19/ext/libv8
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/katyou/Desktop/practice_file/table_definition/vendor/bundle/ruby/2.3.0/gems/libv8-3.16.14.19/ext/libv8
+make "DESTDIR=" install
