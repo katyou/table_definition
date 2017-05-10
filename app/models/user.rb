@@ -6,6 +6,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :projects, through: :user_projects
 
-  enum :status, { admin: 1, staff: 2 }
+  enum status: { admin: 1, staff: 2 }
   validates :enum, presence: true
 end
