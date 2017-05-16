@@ -1,8 +1,8 @@
 class CompaniesController < ApplicationController
-  before_action :usr_login
+  before_action :user_login
 
   def show
-    @company = Comapny.find(params[:id])
+    @company = Company.find(params[:id])
   end
 
   def new

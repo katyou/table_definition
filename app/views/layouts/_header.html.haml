@@ -1,4 +1,13 @@
-%header
-  .container
-    %a.title{ href: root_path }
-      %h3 テーブル定義書
+%li.dropdown
+  -if user_signed_in?
+    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+      Table definition
+      %b.caret
+    %ul.dropdown-menu
+      %li= link_to "Company", company_path(current_user.company_id)
+      %li= link_to "project", company_projects_path(current_user.company_id), class: "header_logo"
+      %li.divider
+      %li
+        = link_to "Log out", destroy_user_session_path, method: "delete", class: "header_logo"
+  - else
+    %li= link_to "Log in", user_session_path, class: "header_logo"

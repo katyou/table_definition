@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'projects#index'
+  root 'companies#show'
   devise_for :users
 
   resources :companies do

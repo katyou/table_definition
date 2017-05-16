@@ -2,5 +2,5 @@
 
   %h1= @company.name
   .container
-    = @projects.each do |project|
-      =link_to company_project_tables_path, project.name, class: "form-control"
+    - @company.projects.each do |project|
+      %li=link_to company_project_tables_path(@company, project.id), project.name, class: "form-control"
