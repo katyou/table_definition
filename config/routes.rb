@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
-  get 'columns/index'
 
-  get 'tables/index'
-
-  get 'tables/show'
-
-  devise_for :users
   root 'projects#index'
-
+  devise_for :users
 
   resources :company do
     resources :project do
