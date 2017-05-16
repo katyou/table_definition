@@ -28,4 +28,11 @@ class User < ApplicationRecord
   has_many :projects, through: :user_projects
 
   enum status: { admin: 1, staff: 2 }
+
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :company_id, presence: true
+  validates :status, presence: true
+  validates :password, presence: true
+
 end

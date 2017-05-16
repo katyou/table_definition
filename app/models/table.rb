@@ -13,4 +13,6 @@ class Table < ApplicationRecord
   has_many :columns
 
   belongs_to :project
+
+  validates :name, presence: true
 end

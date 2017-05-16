@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root 'projects#index'
   devise_for :users
 
-  resources :company do
-    resources :project do
+  resources :companies do
+    resources :projects do
       resources :tables do
         resources :columns
       end

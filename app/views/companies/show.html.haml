@@ -1,6 +1,6 @@
-.project_index_form
+.company_show_form
 
-  %h1 プロジェクト一覧
+  %h1= @company.name
   .container
     = @projects.each do |project|
       =link_to company_project_tables_path, project.name, class: "form-control"
