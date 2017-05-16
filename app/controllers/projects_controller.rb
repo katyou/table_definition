@@ -2,10 +2,10 @@ class ProjectsController < ApplicationController
   before_action :user_login
 
   def index
-    @projects = Project.where(company_id: params[:company_id])
   end
 
   def show
+    @project = Project.find(params[:id])
   end
 
   private
