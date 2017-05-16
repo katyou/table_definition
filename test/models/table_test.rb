@@ -1,17 +1,18 @@
 # == Schema Information
 #
-# Table name: companies
+# Table name: tables
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
+#  company_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+require 'test_helper'
 
-one:
-  name: MyString
-
-two:
-  name: MyString
+class TableTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+end

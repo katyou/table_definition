@@ -39,6 +39,8 @@ gem 'cocoon'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'mina', require: false
+gem 'annotate'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

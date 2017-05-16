@@ -1,9 +1,10 @@
 # == Schema Information
 #
-# Table name: companies
+# Table name: tables
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
+#  company_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -12,6 +13,8 @@
 
 one:
   name: MyString
+  company_id: 1
 
 two:
   name: MyString
+  company_id: 1
