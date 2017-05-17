@@ -1,0 +1,7 @@
+.home_form
+  %h1 テーブル定義書
+  .login_button
+    -if user_signed_in?
+      =link_to "企業情報に戻る", company_path(current_user.company_id), class: "btn btn-primary"
+    -else
+      =link_to "ログインはこちらから", user_session_path, class: 'btn btn-primary'
