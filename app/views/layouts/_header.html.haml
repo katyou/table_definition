@@ -4,8 +4,7 @@
       Table definition
       %b.caret
     %ul.dropdown-menu
-      %li= link_to "Company", company_path(current_user.company_id)
-      %li= link_to "project", company_projects_path(current_user.company_id), class: "header_logo"
+      %li= link_to "Company", company_path(current_user.company_id), class: "header_logp"
       %li.divider
       %li
         = link_to "Log out", destroy_user_session_path, method: "delete", class: "header_logo"

@@ -1,2 +1,9 @@
-%h1 Tables#show
-%p Find me in app/views/tables/show.html.haml
+.table_columns_index_form
+  %h1= @table.name
+
+  %h2 カラム一覧＆編集
+  .container
+    カラム名
+    -@columns.each do |column|
+      = column.name
+      = column.data_type

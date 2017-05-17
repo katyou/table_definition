@@ -8,4 +8,4 @@
   %h2 プロジェクトテーブル一覧
   .container
     - @project.tables.each do |table|
-      =link_to table.name, company_project_table_path(:company_id, :project_id, table), class: "list_form"
+      =link_to table.name, company_project_table_path(current_user.company_id, @project.id, table), class: "list_form"

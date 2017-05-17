@@ -1,10 +1,40 @@
 class TablesController < ApplicationController
   before_action :user_login
 
-  def index
+  def new
+    @table = Table.new
+  end
+
+  def create
+    @table.new
+    respond_to do |format|
+      if @table.save(table_params)
+        format.html(redirect_to company_project_path, notice: "登録しました。新規にカラムも追加してください")
+      else
+        format.html(render :new)
+      end
+    end
   end
 
   def show
+    @table = Table.find(params[:id])
+    @columns = Column.where(:table_id => params[:id])
+  end
+
+  def edit
+    @column = Column.where(:table_id => params[:id])
+    @table = Table.find(params[:id])
+  end
+
+  def update
+    @column.new
+    respond_to do |format|
+      if @column.save(column_params)
+        format.html(redirect_to company_project_table_path, notice: "登録しました")
+      else
+        render :edit
+      end
+    end
   end
 
   def user_login
