@@ -27,18 +27,19 @@ class TablesController < ApplicationController
   end
 
   def update
-    @column.new
+    @table= Table.find(params[:id])
     respond_to do |format|
-      if @column.save(column_params)
-        format.html(redirect_to company_project_table_path, notice: "登録しました")
+      if @table.update(table_params)
+        format.html {redirect_to company_project_table_path(params[:id])}
+        format.json{}
       else
-        render :edit
+        format.html{render :edit}
       end
     end
   end
 
   def table_params
-    params.require(:table).permit(:name, columns_attributes: [:id, :name, :data_type, :logical_name, :_destory])
+    params.require(:table).permit(:name, columns_attributes: [:id, :name, :data_type, :logical_name, :_destroy])
   end
 
   def user_login
