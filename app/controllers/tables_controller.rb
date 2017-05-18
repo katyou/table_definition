@@ -22,7 +22,7 @@ class TablesController < ApplicationController
   end
 
   def edit
-    @column = Column.where(:table_id => params[:id])
+    @columns = Column.where(:table_id => params[:id])
     @table = Table.find(params[:id])
   end
 
@@ -35,6 +35,10 @@ class TablesController < ApplicationController
         render :edit
       end
     end
+  end
+
+  def table_params
+    params.require(:table).permit(:name, columns_attributes: [:id, :name, :data_type, :logical_name, :_destory])
   end
 
   def user_login

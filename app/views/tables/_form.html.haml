@@ -1,0 +1,22 @@
+= form_for [:company, :project, @table] do |f|
+  - if @table.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@table.errors.count, "error")
+        prohibited this project from being saved:textile
+      %ul
+        -@table.errors.full_messages.each do |message|
+          %li = message
+  .js_project
+    .field
+      = f.label :name, class: "wording-form"
+      = f.text_field :name, class: "form-control"
+    .field
+      %h2 カラム
+      = f.fields_for :columns do |column|
+        = render 'column_fields', f: column
+        %br
+    .links
+      = link_to_add_association 'カラム追加', f, :columns
+  .actions
+    = f.submit '登録', class:"btn btn-primary"

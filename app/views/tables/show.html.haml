@@ -7,3 +7,5 @@
     -@columns.each do |column|
       = column.name
       = column.data_type
+    .edit_button
+      = link_to "編集", edit_company_project_table_path(:project, :table), class:"btn btn-primary"

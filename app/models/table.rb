@@ -10,7 +10,8 @@
 #
 
 class Table < ApplicationRecord
-  has_many :columns
+  has_many :columns, dependent: :destroy, inverse_of: :table
+  accepts_nested_attributes_for :columns, allow_destroy: true
 
   belongs_to :project
 
