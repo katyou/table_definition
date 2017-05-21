@@ -8,7 +8,7 @@
     .navbar-collapse.collapse.navbar-responsive-collapse
       %ul.nav.navbar-nav
         -if user_signed_in?
-          %li= link_to "Company", company_path(current_user.company_id), class: "header_logp"
+          %li= link_to "Company", company_path(current_user.company_id), class: "header_logo"
           %li.divider
           %li
             = link_to "Log out", destroy_user_session_path, method: "delete", class: "header_logo"

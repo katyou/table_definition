@@ -2,12 +2,11 @@ Rails.application.routes.draw do
 
   root 'homes#index'
   devise_for :users
+  resources :companies
 
-  resources :companies do
-    resources :projects do
-      resources :tables do
-        resources :columns
-      end
+  resources :projects do
+    resources :tables do
+      resources :columns
     end
   end
 
