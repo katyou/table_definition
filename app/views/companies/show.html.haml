@@ -5,7 +5,8 @@
     %h2= "各プロジェクト一覧"
     - @company.projects.each do |project|
       .container
-        = project.description
-        = link_to project.name, project_path(project),class: "btn btn-default"
-      .container
-        =link_to "新規にユーザーを追加", new_user_company_path, class: 'btn btn-default'
+        = link_to project_path(project) do
+          .title= project.name
+          .description= project.description
+  .container
+    =link_to "新規にユーザーを追加", new_user_company_path, class: 'btn btn-default'
