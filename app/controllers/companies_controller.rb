@@ -8,6 +8,13 @@ class CompaniesController < ApplicationController
   def new
   end
 
+  def new_user
+    @user = User.new
+  end
+
+  def create_user
+  end
+
   def created
   end
 

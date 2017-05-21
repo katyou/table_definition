@@ -12,5 +12,8 @@ class Company < ApplicationRecord
   has_many :users
   has_many :projects
 
+  accepts_nested_attributes_for :users
+
+  validates :user_id, presence: true
   validates :name, presence: true
 end

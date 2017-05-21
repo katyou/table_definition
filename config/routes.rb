@@ -2,7 +2,12 @@ Rails.application.routes.draw do
 
   root 'homes#index'
   devise_for :users
-  resources :companies
+  resources :companies do
+    member do
+      get 'new_user'
+      post 'create-user'
+    end
+  end
 
   resources :projects do
     resources :tables do
