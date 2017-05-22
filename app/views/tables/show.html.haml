@@ -1,12 +1,32 @@
 .table_columns_index_form
-  %h1= @table.name
+  %h1= @table.logical_name
 
   %h2 カラム一覧＆編集
+
   .container
-    カラム名
-    -@columns.each do |column|
-      = column.name
-      = column.data_type
+    .col-md-12
+      .panel
+        .panel-body
+          %table.table-line
+            %thead
+              %tr
+                %th No.
+                %th 論理カラム名
+                %th 物理カラム名
+                %th 型
+                %th Null許可
+                %th デフォルト値
+                %th 外部キー
+            %tbody
+              -@columns.each do |column|
+                %tr
+                  %td= column.id
+                  %td= column.physical_name
+                  %td= column.logical_name
+                  %td= column.data_type
+                  %td= column.null_false
+                  %td= column.default_value
+                  %td= column.foreign_key
     .edit_button
       = link_to "編集", edit_project_table_path, class:"btn btn-primary"
       = link_to "削除", method: "delete", class:"btn btn-primary", confirm: "are you sure?"

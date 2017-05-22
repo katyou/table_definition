@@ -31,7 +31,7 @@ Table.create!(physical_name: "prefecture", logical_name: "都道府県",  projec
 Column.create!(physical_name: "name", logical_name: "名前", table_id: 1, data_type: "string", null_false: 1)
 Column.create!(physical_name: "address", logical_name: "住所", table_id: 1, data_type: "string", null_false: 1)
 Column.create!(physical_name: "email", logical_name: "メールアドレス", table_id: 1, data_type: "string", null_false: 1)
-Column.create!(physical_name: "company_id", logical_name: "企業ID", table_id: 1, data_type: "integer", null_false: 0)
+Column.create!(physical_name: "company_id", logical_name: "企業外部キー", table_id: 1, data_type: "integer", null_false: 0, foreign_key: 1)
 Column.create!(physical_name: "user_tel", logical_name: "電話番号", table_id: 1, data_type: "string", null_false: 1)
 Column.create!(physical_name: "password", logical_name: "パスワード", table_id: 1, data_type: "string", null_false: 1)
 
@@ -41,7 +41,7 @@ Column.create!(physical_name: "name_kana", logical_name: "企業カナ", table_i
 Column.create!(physical_name: "company_tel", logical_name: "企業tel", table_id: 2, data_type: "integer", null_false: 1)
 Column.create!(physical_name: "zip_code", logical_name: "郵便番号", table_id: 2, data_type: "string", null_false: 1)
 Column.create!(physical_name: "address", logical_name: "住所", table_id: 2, data_type: "string", null_false: 1)
-Column.create!(physical_name: "prefecture_id", logical_name: "都道府県外部キー", table_id: 2, data_type: "integer", null_false: 1)
+Column.create!(physical_name: "prefecture_id", logical_name: "都道府県外部キー", table_id: 2, data_type: "integer", null_false: 1, foreign_key: 1)
 
 #都道府県テーブル
 Column.create!(physical_name: "name", logical_name: "都道府県名", table_id: 3, data_type: "string", null_false: 0)
