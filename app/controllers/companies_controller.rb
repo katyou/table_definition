@@ -9,7 +9,11 @@ class CompaniesController < ApplicationController
   end
 
   def users_index
-    @users = User.where(:company_id => @user.company_id)
+    if current_user.admin?
+      @users = User.where(:company_id => current_user.company_id)
+    else
+      redirect_to company_path(current_user.company_id)
+    end
   end
 
   def new_user
@@ -17,7 +21,7 @@ class CompaniesController < ApplicationController
   end
 
   def create_user
-    @user = User.new
+    @user = User.new(user_params)
     respond_to do |format|
       if @user.save!
         format.html{redirect_to users_index_company_path, notice: "ユーザーを登録しました"}
@@ -38,9 +42,9 @@ class CompaniesController < ApplicationController
   end
 
   private
-  # def user_params
-  #   params.require(:user).permit(:name, :status, :password, :email, :company_id, :password_confirmation)
-  # end
+  def user_params
+    params.require(:user).permit(:name, :status, :password, :email, :company_id, :password_confirmation)
+  end
 
   def user_login
     if !current_user

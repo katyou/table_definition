@@ -18,11 +18,11 @@
     .col-md-6
       .field
         = f.label :email
-        = f.email_field :email, autofocus: true, class: 'form-control'
+        = f.text_field :email, autofocus: true, class: 'form-control'
   .col-md-12
     .col-md-6
       = f.label :status
-      = f.select :status, options_for_select([["admin", 1],["user", 2],["reader", 3]]),{}, {class: "form-control"}
+      = f.select :status, User.statuses.keys, {}, {class: "form-control"}
 
   .col-md-12
     .col-md-6
@@ -34,6 +34,6 @@
         = f.label :password_confirmation
         = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
         = f.hidden_field :company_id, :value => current_user.company_id
-        
+
   .actions.new_user_button
     = f.submit "ユーザー登録", class: 'btn btn-primary'
