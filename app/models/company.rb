@@ -14,6 +14,5 @@ class Company < ApplicationRecord
 
   accepts_nested_attributes_for :users
 
-  validates :user_id, presence: true
   validates :name, presence: true
 end

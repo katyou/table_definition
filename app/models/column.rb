@@ -14,5 +14,5 @@
 class Column < ApplicationRecord
   belongs_to :table
 
-  validates :name, :data_type, presence: true
+  validates :physical_name, :logical_name, :data_type, :table_id, presence: true
 end

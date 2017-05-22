@@ -7,6 +7,16 @@
       %ul
         -@table.errors.full_messages.each do |message|
           %li= message
+  %table
+    %thead
+      %tr
+        %th No.
+        %th 論理カラム名
+        %th 物理カラム名
+        %th 型
+        %th Null許可
+        %th デフォルト値
+        %th 外部キー
   .js_project
     .field
       = f.label :name, class: "wording-form"
