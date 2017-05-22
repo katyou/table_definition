@@ -7,26 +7,19 @@
       %ul
         -@table.errors.full_messages.each do |message|
           %li= message
-  %table
-    %thead
-      %tr
-        %th No.
-        %th 論理カラム名
-        %th 物理カラム名
-        %th 型
-        %th Null許可
-        %th デフォルト値
-        %th 外部キー
-  .js_project
-    .field
-      = f.label :name, class: "wording-form"
-      = f.text_field :name, class: "form-control"
-    .field
-      %h2 カラム
-      = f.fields_for :columns do |column|
-        = render 'column_fields', f: column
-        %br
-    .links
-      = link_to_add_association 'カラム追加', f, :columns
+
+  .col-md-1 No.
+  .col-md-2 論理カラム名
+  .col-md-2 物理カラム名
+  .col-md-1 型
+  .col-md-2 Null許可
+  .col-md-2 デフォルト値
+  .col-md-2 外部キー
+
+  .field
+    = f.fields_for :columns do |column|
+      = render 'column_fields', f: column
+  .nested-fields.field
+    = link_to_add_association 'カラム追加', f, :columns, class: "btn btn-warning"
   .actions
     = f.submit '登録', class:"btn btn-primary"
