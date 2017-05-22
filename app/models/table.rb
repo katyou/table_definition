@@ -15,6 +15,5 @@ class Table < ApplicationRecord
 
   belongs_to :project
 
-  validates :physical_name, presence: true
-  validates :logical_name, presence: true
+  validates :physical_name, :logical_name, presence: true
 end

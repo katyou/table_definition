@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
   root 'homes#index'
-  devise_for :users
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations'
+  }
   resources :companies do
     member do
       get 'new_user'
       post 'create-user'
+      get 'users_index'
     end
   end
 

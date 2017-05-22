@@ -27,6 +27,7 @@
                   %td= column.null_false
                   %td= column.default_value
                   %td= column.foreign_key
-    .edit_button
-      = link_to "編集", edit_project_table_path, class:"btn btn-primary"
-      = link_to "削除", method: "delete", class:"btn btn-primary", confirm: "are you sure?"
+    -unless current_user.reader?
+      .edit_button
+        = link_to "編集", edit_project_table_path, class:"btn btn-primary"
+        = link_to "削除", method: "delete", class:"btn btn-primary", confirm: "are you sure?"

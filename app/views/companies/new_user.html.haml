@@ -1,6 +1,14 @@
 %h2 新規ユーザー登録
-= form_for @user, method: 'create_user' do |f|
-  = devise_error_messages!
+- if @user.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(@user.errors.count, "error")
+      prohibited this project from being saved:textile
+    %ul
+      -@user.errors.full_messages.each do |message|
+        %li= message
+
+= form_for @user, url: 'create-user' do |f|
   .col-md-12
     %h3.user_form ユーザー情報※必須
     .col-md-6
@@ -13,16 +21,19 @@
         = f.email_field :email, autofocus: true, class: 'form-control'
   .col-md-12
     .col-md-6
+      = f.label :status
+      = f.select :status, options_for_select([["admin", 1],["user", 2],["reader", 3]]),{}, {class: "form-control"}
+
+  .col-md-12
+    .col-md-6
       .field
         = f.label :password
-        - if @minimum_password_length
-          %em
-            (#{@minimum_password_length} characters minimum)
-            = f.password_field :password, autocomplete: "off", class: 'form-control'
+        = f.password_field :password, autocomplete: "off", class: 'form-control'
     .col-md-6
       .field
         = f.label :password_confirmation
         = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
-  .actions
-    %br
+        = f.hidden_field :company_id, :value => current_user.company_id
+        
+  .actions.new_user_button
     = f.submit "ユーザー登録", class: 'btn btn-primary'

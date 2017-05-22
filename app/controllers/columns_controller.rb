@@ -39,7 +39,7 @@ class ColumnsController < ApplicationController
 
   private
   def column_params
-    params.require(:column).permit(:name, :table_id, :data_type, :logical_name)
+    params.require(:column).permit(:physical_name, :logical_name, :data_type, :null_false, :default_value. :table_id, :data_type, :logical_name)
   end
 
   def user_login

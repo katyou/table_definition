@@ -30,7 +30,7 @@ class TablesController < ApplicationController
     @table= Table.find(params[:id])
     respond_to do |format|
       if @table.update(table_params)
-        format.html {redirect_to company_project_table_path(params[:id])}
+        format.html {redirect_to project_table_path(params[:id]), notice: "更新しました"}
         format.json{}
       else
         format.html{render :edit}
@@ -38,8 +38,10 @@ class TablesController < ApplicationController
     end
   end
 
+  private
+
   def table_params
-    params.require(:table).permit(:name, columns_attributes: [:id, :name, :data_type, :logical_name, :_destroy])
+    params.require(:table).permit(:physical_name, :logical_name, columns_attributes: [:id, :physical_name, :logical_name, :data_type, :null_false, :default_value, :foreign_key, :_destroy])
   end
 
   def user_login

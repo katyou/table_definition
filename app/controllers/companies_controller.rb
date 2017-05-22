@@ -8,11 +8,24 @@ class CompaniesController < ApplicationController
   def new
   end
 
+  def users_index
+    @users = User.where(:company_id => @user.company_id)
+  end
+
   def new_user
     @user = User.new
   end
 
   def create_user
+    @user = User.new
+    respond_to do |format|
+      if @user.save!
+        format.html{redirect_to users_index_company_path, notice: "ユーザーを登録しました"}
+        format.json{}
+      else
+        format.html{render 'new_user'}
+      end
+    end
   end
 
   def created
@@ -25,6 +38,10 @@ class CompaniesController < ApplicationController
   end
 
   private
+  # def user_params
+  #   params.require(:user).permit(:name, :status, :password, :email, :company_id, :password_confirmation)
+  # end
+
   def user_login
     if !current_user
       redirect_to user_session_path, notice: "ログインしてください"

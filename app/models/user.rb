@@ -27,7 +27,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :projects, through: :user_projects
 
-  enum status: { admin: 1, staff: 2 }
+  #admin:会社ごとの管理者。ユーザー消せる user:ユーザー読み書きのみ reader:読み込みのみ
+  enum status: { admin: 1, user: 2, reader: 3 }
 
   validates :name, presence: true
   validates :email, presence: true
