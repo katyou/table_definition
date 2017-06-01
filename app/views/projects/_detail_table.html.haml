@@ -1,0 +1,12 @@
+.table_container
+  %h3=first_table.logical_name
+
+  -first_table.columns.each do |column|
+    %tr
+      %td= column.id
+      %td= column.physical_name
+      %td= column.logical_name
+      %td= column.data_type
+      %td= column.null_false
+      %td= column.default_value
+      %td= column.foreign_key

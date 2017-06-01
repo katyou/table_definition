@@ -6,6 +6,14 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @first_table = Table.where(:project_id => @project).first
+    @tables = Table.where(:project_id => @project)
+  end
+
+  #ajax処理曜のmethod
+  def select_table
+    select_table = data
+    @first_table = Table.find(select_table)
   end
 
   private

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :projects do
+    post 'select_table'
     resources :tables do
       resources :columns
     end

@@ -1,11 +1,38 @@
 .project_show_form
   %h1=@project.name
 
-  %h2 プロジェクト説明
-  .container
-    = @project.description
+  -unless current_user.reader?
+    %right_edit_button= link_to "DB編集", edit_project_path(@project), class:"btn btn-primary"
+  .table_container_large
+    .container
+      .col-md-12
+        .panel
+          .panel-body
+            %table.table-line
+              %thead
+                %tr
+                  %th No.
+                  %th 論理カラム名
+                  %th 物理カラム名
+                  %th 型
+                  %th Null許可
+                  %th デフォルト値
+                  %th 外部キー
+              %tbody
+                = render partial: "detail_table", locals: {first_table: @first_table}
+      - @tables.each do |table|
+        = button_tag table.logical_name, {data: table, class: "btn btn-link-view"}
 
-  %h2 プロジェクトテーブル一覧
-  .container
-    - @project.tables.each do |table|
-      =link_to table.logical_name, project_table_path(@project, table), class: "list_form"
+  .read_me_md
+    .container
+      = render "project_description"
+
+:javascript
+  $(function(){
+    ("btn-link-view").click(function(){
+    console.log("alert!");
+      $.get("/projects/"+table.id"/select_table", table, function(){
+        return
+      });
+    });
+  });
