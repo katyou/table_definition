@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
   def create
   end
 
-  def　edit
+  def edit
   end
 
   def update
@@ -26,7 +26,6 @@ class ProjectsController < ApplicationController
   def select_table
     select_table = params[:data]
     @first_table = Table.find(select_table)
-    render :json => valid
   end
 
   private

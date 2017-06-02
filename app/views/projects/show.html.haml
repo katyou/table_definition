@@ -21,7 +21,7 @@
               %tbody
                 = render partial: "detail_table", locals: {first_table: @first_table}
       - @tables.each do |table|
-        = button_tag table.logical_name, {data: table, remote: true, class: "btn btn-link-view"}
+        = button_tag table.logical_name, {data: table.id, remote: true, class: "btn btn-link-view"}
 
   .read_me_md
     .container
@@ -34,7 +34,7 @@
       $.ajax({
         url: "/projects/select_table",
         type: "GET",
-        data: $(this).attr('table'),
+        data: {data: $(this).attr('data')},
         dataType: "json",
         success: function(data){
           alert("success!");
