@@ -53,5 +53,5 @@ prefecture_datas = [
 
 puts 'Creating prefectures data...'
 prefecture_datas.each do |data|
-  Prefecture.create(data)
+  Prefecture.create!(data)
 end

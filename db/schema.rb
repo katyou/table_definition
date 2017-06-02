@@ -26,12 +26,11 @@ ActiveRecord::Schema.define(version: 20170602161328) do
 
   create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",          null: false
-    t.integer  "company_tel",   null: false
+    t.string   "company_tel",   null: false
     t.string   "company_email", null: false
-    t.integer  "region",        null: false
     t.integer  "prefecture_id", null: false
     t.string   "address1",      null: false
-    t.string   "address2",      null: false
+    t.string   "address2"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

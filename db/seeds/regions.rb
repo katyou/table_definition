@@ -14,6 +14,6 @@ region_datas = [
 if Region.count == 0
   puts 'Creating regions data...'
   region_datas.each do |region_name|
-    Region.create(name: region_name)
+    Region.create!(name: region_name)
   end
 end
