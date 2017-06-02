@@ -3,11 +3,12 @@
   %h1= @company.name
   .container
     %h2= "各プロジェクト一覧"
-    - @company.projects.each do |project|
-      .container
-        = link_to project_path(project) do
-          .title= project.name
-          .description= project.description
+    .col-md-12
+      - @company.projects.each do |project|
+        .col-md-4.project_form
+          = link_to project_path(project) do
+            .title= project.name
+            .description= project.description
   .container
     =link_to "新規にユーザーを追加",  new_user_company_path, class: 'btn btn-default'
     =link_to "タイムライン", root_path, class: "btn btn-default"

@@ -1,5 +1,5 @@
 !!! 5
-%html(lang="en")
+%html(lang="ja")
   %head
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
@@ -17,14 +17,12 @@
     /[if lt IE 9]
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"
 
-
-  %body
-    =render 'layouts/header'
-
-    .container
-      .row
+  .background_field
+    %body
+      =render 'layouts/header'
+      .container
         .col-lg-12
           = bootstrap_flash
           = yield
-      %footer
-        %p &copy; Tabel definition 2017
+    %footer
+      = render "/layouts/footer"

@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'qa', to: 'homes#qa', path: '/homes/qa'
+  get 'term_of_service', to: 'homes#term_of_service', path: '/homes/term_of_service'
+
   resources :projects do
     collection do
       get 'select_table'
