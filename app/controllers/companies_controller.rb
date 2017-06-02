@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :user_login
+  before_action :company_login, only: [:show, :edit, :new_user, :new]
 
   def show
     @company = Company.find(params[:id])
@@ -32,7 +33,7 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def created
+  def create
   end
 
   def edit
@@ -49,6 +50,12 @@ class CompaniesController < ApplicationController
   def user_login
     if !current_user
       redirect_to user_session_path, notice: "ログインしてください"
+    end
+  end
+
+  def company_login
+    unless current_user.company_id == params[:id].to_i
+      redirect_to root_path
     end
   end
 end

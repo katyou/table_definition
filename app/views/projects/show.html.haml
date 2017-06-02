@@ -32,10 +32,10 @@
     $("button.btn-link-view").click(function(){
       console.log("alert!");
       $.ajax({
-        url: "/projects/:project_id/select_table",
+        url: "/projects/select_table",
         type: "GET",
         data: $(this).attr('table'),
-        dataType: "html",
+        dataType: "json",
         success: function(data){
           alert("success!");
         },

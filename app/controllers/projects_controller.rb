@@ -10,10 +10,23 @@ class ProjectsController < ApplicationController
     @tables = Table.where(:project_id => @project)
   end
 
+  def new
+  end
+
+  def create
+  end
+
+  def　edit
+  end
+
+  def update
+  end
+
   #ajax処理曜のmethod
   def select_table
-    select_table = params[data]
+    select_table = params[:data]
     @first_table = Table.find(select_table)
+    render :json => valid
   end
 
   private

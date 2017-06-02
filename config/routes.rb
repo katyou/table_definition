@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   end
 
   resources :projects do
-    post 'select_table'
+    collection do
+      get 'select_table'
+    end
     resources :tables do
       resources :columns
     end
