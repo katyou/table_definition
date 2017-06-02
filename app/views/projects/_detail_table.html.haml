@@ -1,5 +1,6 @@
 .table_container
   %h3=first_table.logical_name
+  = hidden_field first_table, class: "rendering", data: first_table.id
 
   -first_table.columns.each do |column|
     %tr

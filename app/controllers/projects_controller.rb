@@ -24,8 +24,11 @@ class ProjectsController < ApplicationController
 
   #ajax処理曜のmethod
   def select_table
-    select_table = params[:data]
-    @first_table = Table.find(select_table)
+    select_button = params[:data]
+
+    first_table = Table.find(select_button)
+    @first_table = first_table
+    render json: first_table
   end
 
   private

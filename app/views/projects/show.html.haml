@@ -36,8 +36,8 @@
         type: "GET",
         data: {data: $(this).attr('data')},
         dataType: "json",
-        success: function(data){
-          alert("success!");
+        success: function(table_data){
+          console.log(table_data);
         },
         error: function(data){
           alert("error!");
