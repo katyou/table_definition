@@ -21,7 +21,7 @@
               %tbody
                 = render partial: "detail_table", locals: {first_table: @first_table}
       - @tables.each do |table|
-        = button_tag table.logical_name, {data: table, class: "btn btn-link-view"}
+        = button_tag table.logical_name, {data: table, remote: true, class: "btn btn-link-view"}
 
   .read_me_md
     .container
@@ -29,10 +29,19 @@
 
 :javascript
   $(function(){
-    ("btn-link-view").click(function(){
-    console.log("alert!");
-      $.get("/projects/"+table.id"/select_table", table, function(){
-        return
+    $("button.btn-link-view").click(function(){
+      console.log("alert!");
+      $.ajax({
+        url: "/projects/:project_id/select_table",
+        type: "GET",
+        data: $(this).attr('table'),
+        dataType: "html",
+        success: function(data){
+          alert("success!");
+        },
+        error: function(data){
+          alert("error!");
+        }
       });
     });
   });

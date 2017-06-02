@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
 
   #ajax処理曜のmethod
   def select_table
-    select_table = data
+    select_table = params[data]
     @first_table = Table.find(select_table)
   end
 
