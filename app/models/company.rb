@@ -11,6 +11,7 @@
 class Company < ApplicationRecord
   has_many :users
   has_many :projects
+  belongs_to :prefecture
 
   accepts_nested_attributes_for :users
 

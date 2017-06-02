@@ -4,7 +4,7 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-Company.create( name:"イジゲン")
+Company.create( name:"イジゲン", company_tel: 01064480101, company_email: "sample@ijgn.jp", address: "大分県")
 
 Project.create(name: '大分産業', description: "大分の産業は。。。。。。", company_id: 1)
 Project.create(name: '福岡漁業', description: "福岡の漁業はどこが有名でしょうかというサービス", company_id: 1)
