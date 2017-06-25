@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     respond_to do |format|
       if @project.save
-        format.html{redirect_to root_path, notice: "登録完了しました"}
+        format.html{redirect_to company_path(current_user.company_id), notice: "登録完了しました"}
       else
         format.html{render "new"}
       end

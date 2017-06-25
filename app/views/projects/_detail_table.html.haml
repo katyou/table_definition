@@ -1,13 +1,18 @@
 .table_container
-  %h3=first_table.logical_name
-  = hidden_field first_table, class: "rendering", data: first_table.id
+  -if first_table.present?
+    %h3= first_table.logical_name
+    = hidden_field first_table, class: "rendering", data: first_table.id
 
-  -first_table.columns.each do |column|
-    %tr
-      %td= column.id
-      %td= column.physical_name
-      %td= column.logical_name
-      %td= column.data_type
-      %td= column.null_false
-      %td= column.default_value
-      %td= column.foreign_key
+    -first_table.columns.each do |column|
+      %tr
+        %td= column.id
+        %td= column.physical_name
+        %td= column.logical_name
+        %td= column.data_type
+        %td= column.null_false
+        %td= column.default_value
+        %td= column.foreign_key
+  -else
+    %h3 テーブルを登録しましょう
+    = link_to "新規テーブル登録", new_project_path, class: "btn btn-primary"
+    
