@@ -27,8 +27,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :projects, through: :user_projects
 
-  belongs_to :company
-
   # validates :status, inclusion: {in: 1..3}, presence: true
 
   #admin:会社ごとの管理者。ユーザー消せる user:ユーザー読み書きのみ reader:読み込みのみ
@@ -36,7 +34,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true
-  validates :company_id, presence: true
   validates :password, presence: true
 
 end

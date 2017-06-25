@@ -12,7 +12,7 @@ class ColumnsController < ApplicationController
   def create
     @column = Column.new
     respond_to do |format|
-      if @column.save!(column_params)
+      if @column.save(column_params)
         format.html(redirect_to company_project_table_path, noitce: "登録しました")
         format.json()
       else
