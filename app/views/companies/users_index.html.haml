@@ -1,4 +1,16 @@
 %h2 ユーザー一覧
 
--@users.each do |user|
-  =user.name
+%table.table-line
+  %thead
+    %tr
+      %th 名前
+      %th アドレス
+      %th 権限
+  -@users.each do |user|
+    %tbody
+      %td= user.name
+      %td= user.email
+      %td= user.status
+
+.new_user
+  = link_to "新規ユーザー登録", new_user_company_path, class: "btn btn-primary"
