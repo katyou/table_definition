@@ -8,6 +8,7 @@
     %ul.nav.navbar-nav
       -if user_signed_in?
         %li= link_to "Company", company_path(current_user.company_id), class: "header_logo"
+        %li= link_to "New Project", new_project_path, class: "header_logo"
         %li.divider
         %li
           = link_to "Log out", destroy_user_session_path, method: "delete", class: "header_logo"

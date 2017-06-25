@@ -11,9 +11,18 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    @project = Project.new
   end
 
   def create
+    @project = Project.new(project_params)
+    respond_to do |format|
+      if @project.save
+        format.html{redirect_to root_path, notice: "登録完了しました"}
+      else
+        format.html{render "new"}
+      end
+    end
   end
 
   def edit
@@ -32,6 +41,10 @@ class ProjectsController < ApplicationController
   end
 
   private
+  def project_params
+    params.require(:project).permit(:name, :description, :company_id)
+  end
+
   def user_login
     if !current_user
       redirect_to user_session_path, notice: "ログインしてください"
