@@ -51,9 +51,7 @@
   .background_field
     %body
       =render 'layouts/header'
-      .container
-        .col-lg-12
-          = bootstrap_flash
-          = yield
-    %footer
-      = render "/layouts/footer"
+      = bootstrap_flash
+      = yield
+      %footer
+        = render "/layouts/footer"
