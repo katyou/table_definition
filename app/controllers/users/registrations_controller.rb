@@ -11,7 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to new_compnay_path
+      redirect_to new_company_path
     else
       render "new"
     end

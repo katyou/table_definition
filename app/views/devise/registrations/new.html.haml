@@ -29,9 +29,10 @@
         = f.label :password_confirmation
         = f.password_field :password_confirmation, class: 'form-control'
 
+  .col-md-12
+    .actions.mag_t20px
+      = f.submit "サインアップ", class: 'btn btn-primary'
 
-  .actions
-    = f.submit "サインアップ", class: 'btn btn-primary'
-
-%h3 登録をしている方はこちらから
-= render "devise/shared/links"
+.col-md-12
+  %h3.mag_t20px 登録をしている方はこちらから
+  = render "devise/shared/links"
