@@ -13,9 +13,40 @@
     = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
+
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
-      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"
+    = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %title Simple — Free HTML5 Bootstrap Website Template by FreeHTML5.co
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %meta{:content => "Free HTML5 Website Template by FreeHTML5.co", :name => "description"}/
+    %meta{:content => "free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive", :name => "keywords"}/
+    %meta{:content => "FreeHTML5.co", :name => "author"}/
+    %meta{:content => "", :property => "og:title"}/
+    %meta{:content => "", :property => "og:image"}/
+    %meta{:content => "", :property => "og:url"}/
+    %meta{:content => "", :property => "og:site_name"}/
+    %meta{:content => "", :property => "og:description"}/
+    %meta{:content => "", :name => "twitter:title"}/
+    %meta{:content => "", :name => "twitter:image"}/
+    %meta{:content => "", :name => "twitter:url"}/
+    %meta{:content => "", :name => "twitter:card"}/
+    / Place favicon.ico and apple-touch-icon.png in the root directory
+    %link{:href => "favicon.ico", :rel => "shortcut icon"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700", :rel => "stylesheet", :type => "text/css"}/
+    / Animate.css
+    %link{:href => "css/animate.css", :rel => "stylesheet"}/
+    / Magnific Popup
+    %link{:href => "css/magnific-popup.css", :rel => "stylesheet"}/
+    / Bootstrap
+    %link{:href => "css/bootstrap.css", :rel => "stylesheet"}/
+    / Icomoon Icon Fonts
+    %link{:href => "css/icomoon.css", :rel => "stylesheet"}/
+    / Theme style
+    %link{:href => "css/style.css", :rel => "stylesheet"}/
+    / Modernizr JS
+    %script{:src => "js/modernizr-2.6.2.min.js"}
 
   .background_field
     %body
