@@ -7,6 +7,7 @@ class CompaniesController < ApplicationController
   end
 
   def new
+    @company = Company.new
   end
 
   def users_index
@@ -34,6 +35,14 @@ class CompaniesController < ApplicationController
   end
 
   def create
+    @company = Company.new
+    respond_to do |format|
+      if @company.save
+        
+      else
+        render "new"
+      end
+    end
   end
 
   def edit
