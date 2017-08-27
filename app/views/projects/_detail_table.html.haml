@@ -14,5 +14,4 @@
         %td= column.foreign_key
   -else
     %h3 テーブルを登録しましょう
-    = link_to "新規テーブル登録", new_project_path, class: "btn btn-primary"
-    
+    = link_to "新規テーブル登録", new_project_table_path(@project), class: "btn btn-primary"
